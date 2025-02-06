@@ -23,6 +23,8 @@ def play_swear(category):
     english_translation.set(translate_swear(swear))
     
     audio_file = f"audio/{swear}.m4a"  # Ensure the audio files are in an 'audio' folder
+    print(f"Looking for file: {audio_file}")
+
     if os.path.exists(audio_file): 
         mixer.music.load(audio_file)
         mixer.music.play()

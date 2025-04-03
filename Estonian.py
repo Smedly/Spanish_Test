@@ -127,10 +127,15 @@ for i, category in enumerate(categories):
     btn = tk.Button(root, text=category, command=lambda c=category: play_swear(c), 
                     width=50, height=15, relief="raised", bd=5)
     btn.grid(row=0, column=i, padx=5, pady=10)
-"""
+
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, column=0, columnspan=4, pady=10)
 tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
+"""
+
+# Display Area
+tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold"))
+tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic"))
 
 # Button styles
 button_style = {

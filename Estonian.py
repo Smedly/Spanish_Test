@@ -113,9 +113,9 @@ bg_image = tk.PhotoImage(file="image/estonian_flag.png")
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-label_text = tk.StringVar()
-swear_label = tk.Label(root, textvariable=label_text, font=("Arial", 14, "bold"), bg="white")
-swear_label.pack(pady=10)
+# label_text = tk.StringVar()
+# swear_label = tk.Label(root, textvariable=label_text, font=("Arial", 14, "bold"), bg="white")
+# swear_label.pack(pady=10)
 
 swear_text = tk.StringVar()
 english_translation = tk.StringVar()

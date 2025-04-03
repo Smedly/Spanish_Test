@@ -120,6 +120,7 @@ swear_label.pack(pady=10)
 swear_text = tk.StringVar()
 english_translation = tk.StringVar()
 
+"""
 # Buttons
 categories = ["Anger", "Humour", "Surprise", "Random"]
 for i, category in enumerate(categories):
@@ -130,5 +131,17 @@ for i, category in enumerate(categories):
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, column=0, columnspan=4, pady=10)
 tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
+"""
+# Create buttons
+buttons = [
+    ("Anger", lambda: play_swear("Anger")),
+    ("Humour", lambda: play_swear("Humour")),
+    ("Surprise", lambda: play_swear("Surprise")),
+    ("Random", lambda: play_swear(random.choice(list(swears.keys()))))
+]
+
+for text, command in buttons:
+    btn = tk.Button(root, text=text, command=command, **button_style)
+    btn.pack(pady=5)
 
 root.mainloop()

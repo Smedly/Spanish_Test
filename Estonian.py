@@ -140,8 +140,8 @@ button_style = {
     "bg": "black",
     "relief": "raised",
     "bd": 5,
-    "width": 15,
-    "height": 2
+    "width": 50,
+    "height": 15
 }
 
 # Create buttons

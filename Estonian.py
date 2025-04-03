@@ -109,7 +109,7 @@ root.title("Estonian Swearing Machine")
 root.geometry("400x300")
 
 # Load Estonian flag as background
-bg_image = PhotoImage(file="estonian_flag.png")
+bg_image = tk.PhotoImage(file="image/estonian_flag.png")
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 

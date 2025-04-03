@@ -61,4 +61,6 @@ tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).g
 
 root.mainloop()
 
+#
+
 

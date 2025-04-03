@@ -133,10 +133,6 @@ tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, 
 tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
 """
 
-# Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold"))
-tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic"))
-
 # Button styles
 button_style = {
     "font": ("Arial", 18, "bold"),
@@ -156,8 +152,15 @@ buttons = [
     ("Random", lambda: play_swear(random.choice(list(swear_dict.keys()))))
 ]
 
+c=0
+
 for text, command in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.pack(pady=5)
+    btn.grid(row=0, column=c, padx=5, pady=10)
+    c = c+1
+
+# Display Area
+tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, column=0, columnspan=4, pady=10)
+tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
 
 root.mainloop()

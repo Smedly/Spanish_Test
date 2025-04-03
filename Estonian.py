@@ -139,7 +139,7 @@ tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic"))
 
 # Button styles
 button_style = {
-    "font": ("Arial", 50, "bold"),
+    "font": ("Arial", 18, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",

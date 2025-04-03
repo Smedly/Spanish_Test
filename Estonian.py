@@ -65,23 +65,24 @@ button_style = {
 
 # Create buttons
 buttons = [
-    ("Anger", lambda: play_swear("Anger")),
-    ("Humour", lambda: play_swear("Humour")),
-    ("Surprise", lambda: play_swear("Surprise")),
-    ("Random", lambda: play_swear(random.choice(list(swear_dict.keys()))))
+    ("Anger", lambda: play_swear("Anger"), 0, 0),
+    ("Humour", lambda: play_swear("Humour"), 0, 1),
+    ("Surprise", lambda: play_swear("Surprise"), 1, 0),
+    ("Random", lambda: play_swear(random.choice(list(swear_dict.keys()))), 1, 1)
 ]
 
 
-c=0
-r=0
+# c=0
+# r=0
 
-for text, command in buttons:
+for text, command, row, col in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.grid(row=r, column=c, padx=5, pady=10)
-    c = c+1
-    if c == 1:
-        c = 0
-        r = r+1
+    btn.grid(row=row, column=col, padx=5, pady=10)
+
+#    c = c+1
+#    if c == 1:
+#        c = 0
+#        r = r+1
 
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=2, column=0, columnspan=4, pady=10)

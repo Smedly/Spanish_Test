@@ -132,6 +132,18 @@ for i, category in enumerate(categories):
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, column=0, columnspan=4, pady=10)
 tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
 """
+
+# Button styles
+button_style = {
+    "font": ("Arial", 12, "bold"),
+    "fg": "white",
+    "bg": "black",
+    "relief": "raised",
+    "bd": 5,
+    "width": 15,
+    "height": 2
+}
+
 # Create buttons
 buttons = [
     ("Anger", lambda: play_swear("Anger")),

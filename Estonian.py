@@ -72,7 +72,7 @@ mixer.init()
 
 # Swear dictionary with audio filenames
 swear_dict = {
-    "Anger": ["Kuradi!", "Persse!", "Sitapea!"],
+    "Anger": ["Kurat!", "Persse!", "Sitapea!"],
     "Humour": ["Püha müristus!", "Vanaema solvaja!", "Tuharate nuusutaja!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Taevas appi!"],
 }
@@ -96,7 +96,7 @@ def play_swear(category):
 # Function to translate Spanish swears to English
 def translate_swear(swear):
     translations = {
-        "Kuradi!" : "Damn it!", "Persse!" : "Asshole!", "Sitapea!" : "Shithead!",
+        "Kurat!" : "Damn it!", "Persse!" : "Asshole!", "Sitapea!" : "Shithead!",
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help!",
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!",
         "Vanaema solvaja!" : "Grandmother insulter!", "Tuharate nuusutaja!" : "Buttock sniffer"
@@ -141,7 +141,7 @@ button_style = {
     "relief": "raised",
     "bd": 5,
     "width": 20,
-    "height": 10
+    "height": 5
 }
 
 # Create buttons

@@ -87,7 +87,7 @@ def play_swear(category):
     english_translation.set(translate_swear(swear))
     
     audio_file = f"audio/{swear}.mp3"  # Ensure the audio files are in an 'audio' folder
-    print(f"Looking for file: {audio_file}")
+    # print(f"Looking for file: {audio_file}")
 
     if os.path.exists(audio_file): 
         mixer.music.load(audio_file)
@@ -127,15 +127,14 @@ for i, category in enumerate(categories):
     btn = tk.Button(root, text=category, command=lambda c=category: play_swear(c), 
                     width=50, height=15, relief="raised", bd=5)
     btn.grid(row=0, column=i, padx=5, pady=10)
-
+"""
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=1, column=0, columnspan=4, pady=10)
 tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=2, column=0, columnspan=4)
-"""
 
 # Button styles
 button_style = {
-    "font": ("Arial", 18, "bold"),
+    "font": ("Arial", 50, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",

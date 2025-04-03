@@ -72,9 +72,9 @@ mixer.init()
 
 # Swear dictionary with audio filenames
 swear_dict = {
-    "Anger": ["Kuradi!", "Persse!", "Sita kah!"],
-    "Humour": ["Püha müristus!", "Taevas appi!", "Vanaema solvaja!"],
-    "Surprise": ["Tõsi või?", "Issand jumal!"],
+    "Anger": ["Kuradi!", "Persse!", "Sitapea!"],
+    "Humour": ["Püha müristus!", "Vanaema solvaja!", "Tuharate nuusutaja!"],
+    "Surprise": ["Tõsi või?", "Issand jumal!", "Taevas appi!"],
 }
 
 # Function to play audio and display text
@@ -135,12 +135,12 @@ tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).g
 
 # Button styles
 button_style = {
-    "font": ("Arial", 24, "bold"),
+    "font": ("Arial", 18, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",
     "bd": 5,
-    "width": 30,
+    "width": 20,
     "height": 10
 }
 
@@ -149,7 +149,7 @@ buttons = [
     ("Anger", lambda: play_swear("Anger")),
     ("Humour", lambda: play_swear("Humour")),
     ("Surprise", lambda: play_swear("Surprise")),
-    ("Random", lambda: play_swear(random.choice(list(swears.keys()))))
+    ("Random", lambda: play_swear(random.choice(list(swear_dict.keys()))))
 ]
 
 for text, command in buttons:

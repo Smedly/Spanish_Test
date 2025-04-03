@@ -81,7 +81,7 @@ for text, command in buttons:
     c = c+1
     if c == 1:
         c = 0
-        r = r + 1
+        r = r+1
 
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=2, column=0, columnspan=4, pady=10)

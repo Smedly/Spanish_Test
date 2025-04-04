@@ -54,7 +54,7 @@ def play_combo():
         play_audio(swear)
         while mixer.music.get_busy():
             time.sleep(0.05)
-        time.sleep(0.25)  # 250ms pause
+        time.sleep(0.1)  # 250ms pause
     # Show all 3 on screen
     swear_text.set("\n".join(display_lines))
     english_translation.set("")
@@ -74,13 +74,13 @@ english_translation = tk.StringVar()
 
 # 2 rows of buttons using grid
 button_style = {
-    "font": ("Arial", 24, "bold"),
+    "font": ("Arial", 30, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",
     "bd": 6,
-    "width": 12,
-    "height": 2
+    "width": 30,
+    "height": 10
 }
 
 # Frame for buttons

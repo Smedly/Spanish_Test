@@ -54,7 +54,7 @@ english_translation = tk.StringVar()
 
 # Button styles
 button_style = {
-    "font": ("Arial", 18, "bold"),
+    "font": ("Arial", 30, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",
@@ -87,7 +87,7 @@ for text, command, row, col in buttons:
 #        r = r+1
 
 # Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 20, "bold")).grid(row=2, column=0, columnspan=4, pady=10)
-tk.Label(root, textvariable=english_translation, font=("Arial", 14, "italic")).grid(row=3, column=0, columnspan=4)
+tk.Label(root, textvariable=swear_text, font=("Arial", 40, "bold")).grid(row=2, column=0, columnspan=4, pady=10)
+tk.Label(root, textvariable=english_translation, font=("Arial", 24, "italic")).grid(row=3, column=0, columnspan=4)
 
 root.mainloop()

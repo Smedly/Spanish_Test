@@ -74,13 +74,13 @@ english_translation = tk.StringVar()
 
 # 2 rows of buttons using grid
 button_style = {
-    "font": ("Arial", 30, "bold"),
+    "font": ("Arial", 24, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",
     "bd": 6,
-    "width": 30,
-    "height": 10
+    "width": 16,
+    "height": 4
 }
 
 # Frame for buttons

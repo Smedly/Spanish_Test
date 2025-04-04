@@ -40,6 +40,7 @@ def play_audio(swear):
         mixer.music.load(audio_file)
         mixer.music.play()
 
+"""
 # Combo function: play 3 swears in order and display formatted text
 def play_combo():
     categories = ["Anger", "Surprise", "Humour"]
@@ -56,6 +57,28 @@ def play_combo():
 
     swear_text.set("   ".join(estonian_line))
     english_translation.set("   ".join(english_line))
+
+    """
+
+def play_combo():
+    swear1 = random.choice(swear_dict["Anger"])
+    swear2 = random.choice(swear_dict["Surprise"])
+    swear3 = random.choice(swear_dict["Humour"])
+    
+    # Display all three words in a single row
+    swear_text.set(f"{swear1} {swear2} {swear3}")
+    
+    # Display translations centered below
+    english_translation.set(f"{translate_swear(swear1)}    {translate_swear(swear2)}    {translate_swear(swear3)}")
+
+    # Play each swear immediately after the previous one finishes
+    root.after(1, lambda: mixer.music.load(f"audio/{swear1}.mp3"))
+    root.after(2, lambda: mixer.music.play())
+    root.after(800, lambda: mixer.music.load(f"audio/{swear2}.mp3"))  # Adjusted timing for faster playback
+    root.after(801, lambda: mixer.music.play())
+    root.after(1600, lambda: mixer.music.load(f"audio/{swear3}.mp3"))
+    root.after(1601, lambda: mixer.music.play())
+
 
 # GUI setup
 root = tk.Tk()

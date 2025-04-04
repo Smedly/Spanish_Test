@@ -54,7 +54,7 @@ english_translation = tk.StringVar()
 
 # Button styles
 button_style = {
-    "font": ("Arial", 30, "bold"),
+    "font": ("Arial", 20, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",

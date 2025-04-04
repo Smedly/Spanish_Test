@@ -96,6 +96,11 @@ for text, command, row, col in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
     btn.grid(row=row, column=col, padx=20, pady=20, columnspan=3)
 
+    root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=1)
+    root.grid_columnconfigure(2, weight=1)
+
+
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 36, "bold"), bg="white").grid(row=2, column=0, columnspan=3, pady=20)
 tk.Label(root, textvariable=english_translation, font=("Arial", 24, "italic"), bg="white").grid(row=3, column=0, columnspan=3)

@@ -110,12 +110,12 @@ button_style = {
 
 # Create buttons
 buttons = [
-    ("Anger", lambda: play_swear("Anger"), 0, 0),
-    ("Humour", lambda: play_swear("Humour"), 0, 1),
-    ("Surprise", lambda: play_swear("Surprise"), 0, 2),
-    ("Random", lambda: play_swear("Random"), 1, 0),
-    ("Combo", play_combo, 1, 1),
-    ("Too Far", lambda: play_swear("Anger"), 1, 2)
+    ("Anger", lambda: play_swear("Anger"), 5, 0),
+    ("Humour", lambda: play_swear("Humour"), 5, 1),
+    ("Surprise", lambda: play_swear("Surprise"), 5, 2),
+    ("Random", lambda: play_swear("Random"), 6, 0),
+    ("Combo", play_combo, 6, 1),
+    ("Too Far", lambda: play_swear("Anger"), 6, 2)
 ]
 
 for text, command, row, col in buttons:

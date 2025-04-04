@@ -94,7 +94,7 @@ buttons = [
 
 for text, command, row, col in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.grid(row=row, column=col, padx=20, pady=20)
+    btn.grid(row=row, column=col, padx=20, pady=20, columnspan=3)
 
 # Display Area
 tk.Label(root, textvariable=swear_text, font=("Arial", 36, "bold"), bg="white").grid(row=2, column=0, columnspan=3, pady=20)

@@ -94,11 +94,11 @@ buttons = [
 
 for text, command, row, col in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.grid(row=row, column=col, padx=20, pady=20, columnspan=3)
+    btn.grid(row=row, column=col, padx=20, pady=20, columnspan=2)
 
-    root.grid_columnconfigure(0, weight=1)
-    root.grid_columnconfigure(1, weight=1)
-    root.grid_columnconfigure(2, weight=1)
+    root.grid_columnconfigure(0, weight=2)
+    root.grid_columnconfigure(1, weight=2)
+    root.grid_columnconfigure(2, weight=2)
 
 
 # Display Area

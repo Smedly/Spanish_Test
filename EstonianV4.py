@@ -118,7 +118,7 @@ buttons = [
     ("Humour", lambda: play_swear("Humour"), 3, 1),
     ("Surprise", lambda: play_swear("Surprise"), 3, 2),
 #   ("Random", lambda: play_swear("Random"), 6, 0),
-    ("Combo", lambda: play_combo, 4, 0),
+    ("Combo", lambda: play_combo(), 4, 0),
     ("Too Far", lambda: play_swear("Anger"), 4, 1),
     ("Menu", lambda: play_swear("Anger"), 4, 2)
 ]

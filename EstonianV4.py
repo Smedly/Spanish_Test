@@ -71,10 +71,10 @@ def play_combo():
     swear3 = random.choice(swear_dict["Humour"])
     
     # Display all three words in a single row
-    swear_text.set(f"{swear1} {swear2} {swear3}")
+    swear_text.set(f"{swear1} {swear3}")
     
     # Display translations centered below
-    english_translation.set(f"{translate_swear(swear1)}    {translate_swear(swear2)}    {translate_swear(swear3)}")
+    english_translation.set(f"{translate_swear(swear1)}   {translate_swear(swear3)}")
 
     # Play each swear immediately after the previous one finishes
     root.after(1, lambda: mixer.music.load(f"audio/{swear1}.mp3"))

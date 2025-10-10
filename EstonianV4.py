@@ -83,6 +83,7 @@ def play_combo():
 # GUI setup
 root = tk.Tk()
 root.title("ESM Compact Modoe")
+root.attributes('-fullscreen', True)
 
 # Set small fixed size for 3.5” display (adjust if needed)
 root.geometry("480x320")
@@ -113,25 +114,26 @@ button_style = {
 
 # Create buttons
 buttons = [
-    ("Anger", lambda: play_swear("Anger"), 5, 0),
-    ("Humour", lambda: play_swear("Humour"), 5, 1),
-    ("Surprise", lambda: play_swear("Surprise"), 5, 2),
-    ("Random", lambda: play_swear("Random"), 6, 0),
-    ("Combo", play_combo, 6, 1),
-    ("Too Far", lambda: play_swear("Anger"), 6, 2)
+    ("Anger", lambda: play_swear("Anger"), 3, 0),
+    ("Humour", lambda: play_swear("Humour"), 3, 1),
+    ("Surprise", lambda: play_swear("Surprise"), 3, 2),
+#   ("Random", lambda: play_swear("Random"), 6, 0),
+    ("Combo", play_combo, 4, 0),
+    ("Too Far", lambda: play_swear("Anger"), 4, 1)
+    ("Menu", lambda: play_swear("Anger"), 4, 2)
 ]
 
 for text, command, row, col in buttons:
     btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.grid(row=row, column=col, padx=20, pady=20, columnspan=1)
+    btn.grid(row=row, column=col, padx=10, pady=10, columnspan=1)
 
-    root.grid_columnconfigure(0, weight=2)
-    root.grid_columnconfigure(1, weight=2)
-    root.grid_columnconfigure(2, weight=2)
+    root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=1)
+    root.grid_columnconfigure(2, weight=1)
 
 
 # Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 36, "bold"), bg="white").grid(row=8, column=0, columnspan=3, pady=20)
-tk.Label(root, textvariable=english_translation, font=("Arial", 24, "italic"), bg="white").grid(row=9, column=0, columnspan=3)
+tk.Label(root, textvariable=swear_text, font=("Arial", 28, "bold"), bg="white").grid(row=6, column=0, columnspan=3, pady=5)
+tk.Label(root, textvariable=english_translation, font=("Arial", 24, "italic"), bg="white").grid(row=7, column=0, columnspan=3)
 
 root.mainloop()

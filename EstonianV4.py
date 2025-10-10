@@ -82,8 +82,11 @@ def play_combo():
 
 # GUI setup
 root = tk.Tk()
-root.title("Estonian Swearing Machine")
-root.attributes('-fullscreen', True)
+root.title("ESM Compact Modoe")
+
+# Set small fixed size for 3.5” display (adjust if needed)
+root.geometry("480x320")
+root.configure(bg="black")
 
 # Load background image (Estonian flag)
 bg_image = tk.PhotoImage(file="image/estonian_flag.png")
@@ -99,13 +102,13 @@ english_translation = tk.StringVar()
 
 # Button style
 button_style = {
-    "font": ("Arial", 28, "bold"),
+    "font": ("Arial", 14, "bold"),
     "fg": "white",
     "bg": "black",
     "relief": "raised",
-    "bd": 8,
-    "width": 15,
-    "height": 3
+    "bd": 4,
+    "width": 10,
+    "height": 2
 }
 
 # Create buttons

@@ -93,8 +93,8 @@ bg_image = tk.PhotoImage(file="image/estonian_flag.png")
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
-title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
-title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
+#title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
+#title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
 
 # Variables for swear text and translation
 swear_text = tk.StringVar()

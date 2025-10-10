@@ -9,18 +9,23 @@ mixer.init()
 
 # Swear dictionary
 swear_dict = {
-    "Anger": ["Kurat!", "Persse!", "Sitapea!"],
-    "Humour": ["Püha müristus!", "Vanaema solvaja!", "Tuharate nuusutaja!"],
-    "Surprise": ["Tõsi või?", "Issand jumal!", "Taevas appi!"],
+    "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
+    "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
+    "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!" "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
 }
 
 # Function to translate Estonian swears to English
 def translate_swear(swear):
     translations = {
-        "Kurat!" : "Damn it!", "Persse!" : "Asshole!", "Sitapea!" : "Shithead!",
-        "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help!",
-        "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!",
-        "Vanaema solvaja!" : "Grandmother insulter!", "Tuharate nuusutaja!" : "Buttock sniffer"
+        "Kurat!" : "Damn it!", "Persevest!" : "Ass vest!", "Sitapea!" : "Shithead!", 
+        "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid as a boot!", "Kanaaju!", : "Chicken brain!", 
+        "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like a ram",
+        "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
+        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Why don't you drive to pick some mushrooms?!", "Tõmba uttu!" : "Go pull into a fog!", 
+        "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
+        "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass?!", 
+        "Mida põrgut!" : "What the hell?!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
+        "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cock beetles!"
     }
     return translations.get(swear, "Unknown")
 

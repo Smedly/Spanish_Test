@@ -21,7 +21,7 @@ def translate_swear(swear):
         "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid as a boot!", "Kanaaju!" : "Chicken brain!", 
         "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like a ram",
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
-        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Why don't you drive to pick some mushrooms?!", "Tõmba uttu!" : "Go pull into a fog!", 
+        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Go pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass?!", 
         "Mida põrgut!" : "What the hell?!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
@@ -138,7 +138,7 @@ for text, command, row, col in buttons:
 
 
 # Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 28, "bold"), bg="white").grid(row=6, column=0, columnspan=3, pady=5)
-tk.Label(root, textvariable=english_translation, font=("Arial", 24, "italic"), bg="white").grid(row=7, column=0, columnspan=3)
+tk.Label(root, textvariable=swear_text, font=("Arial", 24, "bold"), bg="white").grid(row=6, column=0, columnspan=3, pady=5)
+tk.Label(root, textvariable=english_translation, font=("Arial", 20, "italic"), bg="white").grid(row=7, column=0, columnspan=3)
 
 root.mainloop()

@@ -14,6 +14,10 @@ swear_dict = {
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!" "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
 }
 
+# Copy of swear_dict to track unplayed swears
+unplayed_swears = {category: swear_dict[category][:] for category in swear_dict}
+
+
 # Function to translate Estonian swears to English
 def translate_swear(swear):
     translations = {
@@ -29,6 +33,7 @@ def translate_swear(swear):
     }
     return translations.get(swear, "Unknown")
 
+"""
 # Function to play a single swear
 def play_swear(category):
     if category == "Random":
@@ -37,6 +42,28 @@ def play_swear(category):
     swear_text.set(swear)
     english_translation.set(translate_swear(swear))
     play_audio(swear)
+    """
+
+# Function to play a single swear without repeating
+def play_swear(category):
+    global unplayed_swears
+
+    if category == "Random":
+        category = random.choice(list(swear_dict.keys()))
+
+    # If all swears in this category have been played, reset the list
+    if not unplayed_swears[category]:
+        unplayed_swears[category] = swear_dict[category][:]
+
+    # Choose and remove a swear from the unplayed list
+    swear = random.choice(unplayed_swears[category])
+    unplayed_swears[category].remove(swear)
+
+    # Display and play it
+    swear_text.set(swear)
+    english_translation.set(translate_swear(swear))
+    play_audio(swear)
+
 
 # Function to play audio
 def play_audio(swear):

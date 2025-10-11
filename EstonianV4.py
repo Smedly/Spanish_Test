@@ -27,9 +27,9 @@ def translate_swear(swear):
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
         "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Go pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
-        "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass?!", 
-        "Mida põrgut!" : "What the hell?!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
-        "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cock beetles!"
+        "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
+        "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
+        "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!"
     }
     return translations.get(swear, "Unknown")
 
@@ -168,6 +168,7 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 #title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
 #title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
 
+"""
 # Variables for swear text and translation
 swear_text = tk.StringVar()
 english_translation = tk.StringVar()
@@ -208,3 +209,46 @@ tk.Label(root, textvariable=swear_text, font=("Arial", 24, "bold"), bg="white").
 tk.Label(root, textvariable=english_translation, font=("Arial", 20, "italic"), bg="white").grid(row=7, column=0, columnspan=3)
 
 root.mainloop()
+
+"""
+
+# Variables for swear text and translation
+swear_text = tk.StringVar(value="Eesti Vandumismasin")  # Estonian Swearing Machine in Estonian
+english_translation = tk.StringVar(value="Estonian Swearing Machine")
+
+# Button style
+button_style = {
+    "font": ("Arial", 14, "bold"),
+    "fg": "white",
+    "bg": "black",
+    "relief": "raised",
+    "bd": 4,
+    "width": 10,
+    "height": 2
+}
+
+# Create buttons
+buttons = [
+    ("Anger", lambda: play_swear("Anger"), 3, 0),
+    ("Humour", lambda: play_swear("Humour"), 3, 1),
+    ("Surprise", lambda: play_swear("Surprise"), 3, 2),
+#   ("Random", lambda: play_swear("Random"), 6, 0),
+    ("Combo", lambda: play_combo(), 4, 0),
+    ("Too Far", lambda: play_swear("Anger"), 4, 1),
+    ("Menu", lambda: play_swear("Anger"), 4, 2)
+]
+
+for text, command, row, col in buttons:
+    btn = tk.Button(root, text=text, command=command, **button_style)
+    btn.grid(row=row, column=col, padx=10, pady=10, columnspan=1)
+
+    root.grid_columnconfigure(0, weight=1)
+    root.grid_columnconfigure(1, weight=1)
+    root.grid_columnconfigure(2, weight=1)
+
+# Display Area
+tk.Label(root, textvariable=swear_text, font=("Arial", 24, "bold"), bg="white", justify="center").grid(row=6, column=0, columnspan=3, pady=5)
+tk.Label(root, textvariable=english_translation, font=("Arial", 20, "italic"), bg="white", justify="center").grid(row=7, column=0, columnspan=3)
+
+root.mainloop()
+

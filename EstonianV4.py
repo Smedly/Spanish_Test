@@ -91,6 +91,7 @@ def play_combo():
     english_translation.set("   ".join(english_line))
 
     """
+    """
 
 def play_combo():
     swear1 = random.choice(swear_dict["Anger"])
@@ -110,6 +111,37 @@ def play_combo():
     root.after(801, lambda: mixer.music.play())
     root.after(1600, lambda: mixer.music.load(f"audio/{swear3}.mp3"))
     root.after(1601, lambda: mixer.music.play())
+"""
+
+def play_combo():
+    import random
+
+    # Helper: lowercase & clean second swear
+    def to_combo_form(s):
+        s = s.strip()
+        if s.endswith(("!", "?", ".")):
+            s = s[:-1]
+        return s[0].lower() + s[1:]
+
+    # Collect all swears across all categories
+    all_swears = [swear for cat in swear_dict.values() for swear in cat]
+
+    # Pick two distinct swears
+    swear1, swear2 = random.sample(all_swears, 2)
+
+    # Build combo text (Estonian)
+    combo_est = f"{swear1[:-1]} {to_combo_form(swear2)}!"
+    swear_text.set(combo_est)
+
+    # Build translation text (English)
+    combo_eng = f"{translate_swear(swear1)} {translate_swear(swear2).lower()}"
+    english_translation.set(combo_eng)
+
+    # Play audio sequentially — nice timing
+    root.after(1, lambda: mixer.music.load(f"audio/{swear1}.mp3"))
+    root.after(2, lambda: mixer.music.play())
+    root.after(900, lambda: mixer.music.load(f"audio/{swear2}.mp3"))  # Adjust timing if needed
+    root.after(901, lambda: mixer.music.play())
 
 
 # GUI setup

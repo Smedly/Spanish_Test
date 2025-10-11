@@ -12,7 +12,9 @@ swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
+    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!"],
 }
+
 
 # Copy of swear_dict to track unplayed swears
 unplayed_swears = {category: swear_dict[category][:] for category in swear_dict}
@@ -22,14 +24,15 @@ unplayed_swears = {category: swear_dict[category][:] for category in swear_dict}
 def translate_swear(swear):
     translations = {
         "Kurat!" : "Damn it!", "Persevest!" : "Ass vest!", "Sitapea!" : "Shithead!", 
-        "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid as a boot!", "Kanaaju!" : "Chicken brain!", 
-        "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like a ram",
+        "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid like boot!", "Kanaaju!" : "Chicken brain!", 
+        "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like ram",
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
-        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Go pull into a fog!", 
+        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!"
+         "Mul on kohutavalt, kohutavalt kahju!" : "I'm terribly, terribly sorry!", "Suudlen su jalgu vabanduseks!" : "I kiss your feet as an apology"
     }
     return translations.get(swear, "Unknown")
 
@@ -254,7 +257,7 @@ buttons = [
     ("Surprise", lambda: play_swear("Surprise"), 3, 2),
 #   ("Random", lambda: play_swear("Random"), 6, 0),
     ("Combo", lambda: play_combo(), 4, 0),
-    ("Too Far", lambda: play_swear("Anger"), 4, 1),
+    ("Too Far", lambda: play_swear("Too Far"), 4, 1),
     ("Menu", lambda: play_swear("Anger"), 4, 2)
 ]
 
@@ -267,8 +270,8 @@ for text, command, row, col in buttons:
     root.grid_columnconfigure(2, weight=1)
 
 # Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 24, "bold"), bg="white", justify="center").grid(row=6, column=0, columnspan=3, pady=5)
-tk.Label(root, textvariable=english_translation, font=("Arial", 20, "italic"), bg="white", justify="center").grid(row=7, column=0, columnspan=3)
+tk.Label(root, textvariable=swear_text, font=("Arial", 22, "bold"), bg="white", justify="center").grid(row=6, column=0, columnspan=3, pady=5)
+tk.Label(root, textvariable=english_translation, font=("Arial", 18, "italic"), bg="white", justify="center").grid(row=7, column=0, columnspan=3)
 
 root.mainloop()
 

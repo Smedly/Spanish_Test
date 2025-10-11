@@ -213,8 +213,28 @@ root.mainloop()
 """
 
 # Variables for swear text and translation
-swear_text = tk.StringVar(value="Eesti Vandumismasin")  # Estonian Swearing Machine in Estonian
-english_translation = tk.StringVar(value="Estonian Swearing Machine")
+swear_text = tk.StringVar(value="")
+english_translation = tk.StringVar(value="")
+
+estonian_title = "Eesti Vandumismasin"
+english_title = "Estonian Swearing Machine"
+
+# --- Typewriter effect ---
+def typewriter_effect(text, var, delay=100, index=0, callback=None):
+    """Displays text one character at a time."""
+    if index < len(text):
+        var.set(text[:index + 1])
+        root.after(delay, typewriter_effect, text, var, delay, index + 1, callback)
+    elif callback:
+        root.after(300, callback)  # Optional pause before next line
+
+
+def startup_sequence():
+    """Runs typing for both lines sequentially."""
+    typewriter_effect(estonian_title, swear_text, delay=100, callback=lambda:
+        typewriter_effect(english_title, english_translation, delay=80))
+
+root.after(1000, startup_sequence)  # Wait 1 second after launch before starting
 
 # Button style
 button_style = {

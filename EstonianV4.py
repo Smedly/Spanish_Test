@@ -90,9 +90,6 @@ def play_combo():
     swear_text.set("   ".join(estonian_line))
     english_translation.set("   ".join(english_line))
 
-    """
-    """
-
 def play_combo():
     swear1 = random.choice(swear_dict["Anger"])
     swear2 = random.choice(swear_dict["Surprise"])

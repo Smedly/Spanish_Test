@@ -11,7 +11,7 @@ mixer.init()
 swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
-    "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!" "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
+    "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
 }
 
 # Copy of swear_dict to track unplayed swears
@@ -131,7 +131,17 @@ def play_combo():
     swear_text.set(combo_est)
 
     # Build translation text (English)
-    combo_eng = f"{translate_swear(swear1)} {translate_swear(swear2).lower()}"
+    #combo_eng = f"{translate_swear(swear1)} {translate_swear(swear2).lower()}"
+    #english_translation.set(combo_eng)
+    eng1 = translate_swear(swear1).strip()
+    eng2 = translate_swear(swear2).strip()
+
+    # Remove trailing punctuation and lowercase second word
+    if eng1.endswith(("!", ".", "?")):
+        eng1 = eng1[:-1]
+    eng2 = eng2[0].lower() + eng2[1:]
+
+    combo_eng = f"{eng1} {eng2}!"
     english_translation.set(combo_eng)
 
     # Play audio sequentially — nice timing

@@ -7,6 +7,9 @@ from pygame import mixer
 # Initialize Pygame Mixer
 mixer.init()
 
+# --- after imports and mixer.init() ---
+root = tk.Tk()
+
 # Swear dictionary
 swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],

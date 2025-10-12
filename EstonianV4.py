@@ -12,7 +12,9 @@ swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
-    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!"], 
+
+    "Too Far": ["Mul on nii nii nii kahju!", "Ma suudlen su varbaid vabanduseks!", "Sa oled suurepärane, mina olen saast!", "Anna andeks, ma olen ahv!", 
+    "Ma olen täielik idioot!", "Ma rooman su ees nagu uss", "Las ma elan nagu su mopp!", "Ma lähen metsa häbi pärast", "Kas sa saad mu kanaaju andeks anda?"], 
 }
 
 
@@ -36,8 +38,13 @@ def translate_swear(swear):
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!",
         # Too Far
-        "Mul on kohutavalt, kohutavalt kahju!" : "I'm terribly, terribly sorry!", "Suudlen su jalgu vabanduseks!" : "I kiss your feet as an apology!" 
+        "Mul on nii nii nii kahju!" : "I'm so so so sorry!", "Ma suudlen su varbaid vabanduseks!" : "I kiss your toes as an apology!",
+        "Sa oled suurepärane, mina olen saast!" : "You are great, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",
+        "Ma olen täielik idioot!" : "I'm a total idiot!", "Ma rooman su ees nagu uss" : "I crawl before you like a worm!",
+        "Las ma elan nagu su mopp!" : "Let me live as your mop!", "Ma lähen metsa häbi pärast!" : "I'm going to the forest in shame!",
+        "Kas sa saad mu kanaaju andeks anda?" : "Can you forgive my chicken brain?",
     }
+    
     return translations.get(swear, "Unknown")
 
 

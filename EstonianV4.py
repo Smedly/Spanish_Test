@@ -36,8 +36,8 @@ def translate_swear(swear):
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!"
         # Too Far
-        "Mul on kohutavalt, kohutavalt kahju!": "I'm terribly, terribly sorry!",
-        "Suudlen su jalgu vabanduseks!": "I kiss your feet as an apology!"
+        "Mul on kohutavalt kohutavalt kahju!" : "I'm terribly terribly sorry!",
+        "Suudlen su jalgu vabanduseks!" : "I kiss your feet as an apology!"
     }
     return translations.get(swear, "Unknown")
 

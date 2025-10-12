@@ -31,12 +31,12 @@ def translate_swear(swear):
         "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like ram",
         # Humour
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
-        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Pull into a fog!", 
+        "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick mushrooms!", "Tõmba uttu!" : "Pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
         # Surprise
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
-        "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!",
+        "Sitanikerdis!" : "What a shit carving!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!",
         # Too Far
         "Mul on nii nii nii kahju!" : "I'm so so so sorry!", "Suudlen su varbaid!" : "I kiss your toes!",
         "Tubli oled, mina olen prügi.!" : "You are good, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",
@@ -121,11 +121,151 @@ def play_combo():
     root.after(900, lambda: mixer.music.load(f"audio/{swear2}.mp3"))  # Adjust timing if needed
     root.after(901, lambda: mixer.music.play())
 
+#start new section1
 
+# --- Screen switching and shutdown helpers ---
+
+def show_main_screen():
+    """Rebuilds the main swearing screen."""
+    for widget in root.winfo_children():
+        widget.destroy()
+    build_main_screen()
+
+def show_menu_screen():
+    """Shows the Menu screen (Shutdown + Back)."""
+    for widget in root.winfo_children():
+        widget.destroy()
+    build_menu_screen()
+
+def shutdown_pi():
+    """Shutdown command (safe to test)."""
+    os.system("sudo shutdown -h now")
+    # During testing, replace above with:
+    # print("Shutdown pressed (disabled for testing)")
+
+#end new section 1
+
+#start new section 2
+
+# --- GUI setup ---
+
+def build_main_screen():
+    global bg_image
+
+    root.title("ESM Compact Mode")
+    root.attributes('-fullscreen', True)
+    root.config(cursor="none")
+
+    # Set size for 3.5” display
+    root.geometry("480x320")
+    root.configure(bg="black")
+
+    # Load background image (Estonian flag)
+    bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    bg_label = tk.Label(root, image=bg_image)
+    bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+    # Variables for swear text and translation
+    global swear_text, english_translation
+    swear_text = tk.StringVar(value="")
+    english_translation = tk.StringVar(value="")
+
+    # Titles
+    estonian_title = "Eesti Vandumismasin"
+    english_title = "Estonian Swearing Machine"
+
+    # --- Typewriter effect ---
+    def typewriter_effect(text, var, delay=100, index=0, callback=None):
+        if index < len(text):
+            var.set(text[:index + 1])
+            root.after(delay, typewriter_effect, text, var, delay, index + 1, callback)
+        elif callback:
+            root.after(300, callback)
+
+    def startup_sequence():
+        typewriter_effect(estonian_title, swear_text, delay=100, callback=lambda:
+            typewriter_effect(english_title, english_translation, delay=80))
+
+    root.after(1000, startup_sequence)
+
+    # Button style
+    button_style = {
+        "font": ("Arial", 14, "bold"),
+        "fg": "white",
+        "bg": "black",
+        "relief": "raised",
+        "bd": 4,
+        "width": 10,
+        "height": 2
+    }
+
+    # Create buttons
+    buttons = [
+        ("Anger", lambda: play_swear("Anger"), 3, 0),
+        ("Humour", lambda: play_swear("Humour"), 3, 1),
+        ("Surprise", lambda: play_swear("Surprise"), 3, 2),
+        ("Combo", lambda: play_combo(), 4, 0),
+        ("Too Far", lambda: play_swear("Too Far"), 4, 1),
+        ("Menu", show_menu_screen, 4, 2)
+    ]
+
+    for text, command, row, col in buttons:
+        btn = tk.Button(root, text=text, command=command, **button_style)
+        btn.grid(row=row, column=col, padx=10, pady=10)
+
+        root.grid_columnconfigure(0, weight=1)
+        root.grid_columnconfigure(1, weight=1)
+        root.grid_columnconfigure(2, weight=1)
+
+    # Display Area
+    tk.Label(root, textvariable=swear_text, font=("Arial", 22, "bold"), bg="white", justify="center").grid(row=6, column=0, columnspan=3, pady=5)
+    tk.Label(root, textvariable=english_translation, font=("Arial", 18, "italic"), bg="white", justify="center").grid(row=7, column=0, columnspan=3)
+
+#end new section 2
+
+#start new section 3
+
+def build_menu_screen():
+    global bg_image
+    bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    bg_label = tk.Label(root, image=bg_image)
+    bg_label.place(x=0, y=0, relwidth=1, relheight=1)
+
+    title = tk.Label(root, text="Menu", font=("Arial", 24, "bold"), bg="white")
+    title.pack(pady=20)
+
+    btn_style = {
+        "font": ("Arial", 16, "bold"),
+        "bg": "black",
+        "fg": "white",
+        "width": 12,
+        "height": 2
+    }
+
+    shutdown_btn = tk.Button(root, text="Shutdown", command=shutdown_pi, **btn_style)
+    shutdown_btn.pack(pady=10)
+
+    back_btn = tk.Button(root, text="Back", command=show_main_screen, **btn_style)
+    back_btn.pack(pady=10)
+
+#end new section 3
+
+#start new section 4
+
+build_main_screen()
+root.mainloop()
+
+#end new section 4
+
+
+
+"""
 # GUI setup
 root = tk.Tk()
 root.title("ESM Compact Modoe")
 root.attributes('-fullscreen', True)
+root.config(cursor="none")
+
 
 # Set small fixed size for 3.5” display (adjust if needed)
 root.geometry("480x320")
@@ -136,9 +276,6 @@ root.configure(bg="black")
 bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
 bg_label = tk.Label(root, image=bg_image)
 bg_label.place(x=0, y=0, relwidth=1, relheight=1)
-
-#title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
-#title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
 
 # Variables for swear text and translation
 swear_text = tk.StringVar(value="")
@@ -199,4 +336,4 @@ tk.Label(root, textvariable=swear_text, font=("Arial", 22, "bold"), bg="white", 
 tk.Label(root, textvariable=english_translation, font=("Arial", 18, "italic"), bg="white", justify="center").grid(row=7, column=0, columnspan=3)
 
 root.mainloop()
-
+"""

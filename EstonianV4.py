@@ -42,7 +42,7 @@ def translate_swear(swear):
         "Tubli oled, mina olen prügi.!" : "You are good, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",
         "Ma olen täielik idioot!" : "I'm a total idiot!", "Ma rooman su ees nagu uss" : "I crawl before you like a worm!",
         "Las ma elan nagu su mopp!" : "Let me live as your mop!", "Ma lähen metsa häbi pärast!" : "I'm going to the forest in shame!",
-        "Palun andesta mu kanaaju.!" : "Please forgive my chicken brain!",
+        "Palun andesta mu kanaaju!" : "Please forgive my chicken brain!",
     }
     
     return translations.get(swear, "Unknown")
@@ -88,7 +88,11 @@ def play_combo():
         return s[0].lower() + s[1:]
 
     # Collect all swears across all categories
-    all_swears = [swear for cat in swear_dict.values() for swear in cat]
+    #all_swears = [swear for cat in swear_dict.values() for swear in cat]
+
+    # Collect swears only from Anger, Humour, and Surprise
+    all_swears = [swear for cat_name, cat in swear_dict.items() if cat_name != "Too Far" for swear in cat]
+
 
     # Pick two distinct swears
     swear1, swear2 = random.sample(all_swears, 2)

@@ -286,7 +286,7 @@ english_title = "Estonian Swearing Machine"
 
 # --- Typewriter effect ---
 def typewriter_effect(text, var, delay=100, index=0, callback=None):
-    """Displays text one character at a time."""
+    #Displays text one character at a time.
     if index < len(text):
         var.set(text[:index + 1])
         root.after(delay, typewriter_effect, text, var, delay, index + 1, callback)
@@ -295,7 +295,7 @@ def typewriter_effect(text, var, delay=100, index=0, callback=None):
 
 
 def startup_sequence():
-    """Runs typing for both lines sequentially."""
+    #Runs typing for both lines sequentially.
     typewriter_effect(estonian_title, swear_text, delay=100, callback=lambda:
         typewriter_effect(english_title, english_translation, delay=80))
 

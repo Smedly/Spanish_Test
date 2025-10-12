@@ -13,8 +13,8 @@ swear_dict = {
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
 
-    "Too Far": ["Mul on nii nii nii kahju!", "Ma suudlen su varbaid vabanduseks!", "Sa oled suurepärane, mina olen saast!", "Anna andeks, ma olen ahv!", 
-    "Ma olen täielik idioot!", "Ma rooman su ees nagu uss", "Las ma elan nagu su mopp!", "Ma lähen metsa häbi pärast", "Kas sa saad mu kanaaju andeks anda?"], 
+    "Too Far": ["Mul on nii nii nii kahju!", "Suudlen su varbaid!", "Tubli oled, mina olen prügi.!", "Anna andeks, ma olen ahv!", 
+    "Ma olen täielik idioot!", "Ma rooman su ees nagu uss", "Las ma elan nagu su mopp!", "Ma lähen metsa häbi pärast!", "Palun andesta mu kanaaju!"], 
 }
 
 
@@ -38,11 +38,11 @@ def translate_swear(swear):
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!",
         # Too Far
-        "Mul on nii nii nii kahju!" : "I'm so so so sorry!", "Ma suudlen su varbaid vabanduseks!" : "I kiss your toes as an apology!",
-        "Sa oled suurepärane, mina olen saast!" : "You are great, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",
+        "Mul on nii nii nii kahju!" : "I'm so so so sorry!", "Suudlen su varbaid!" : "I kiss your toes!",
+        "Tubli oled, mina olen prügi.!" : "You are good, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",
         "Ma olen täielik idioot!" : "I'm a total idiot!", "Ma rooman su ees nagu uss" : "I crawl before you like a worm!",
         "Las ma elan nagu su mopp!" : "Let me live as your mop!", "Ma lähen metsa häbi pärast!" : "I'm going to the forest in shame!",
-        "Kas sa saad mu kanaaju andeks anda?" : "Can you forgive my chicken brain?",
+        "Palun andesta mu kanaaju.!" : "Please forgive my chicken brain!",
     }
     
     return translations.get(swear, "Unknown")

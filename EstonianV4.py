@@ -12,6 +12,7 @@ swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
+    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!"]
 }
 
 
@@ -22,28 +23,24 @@ unplayed_swears = {category: swear_dict[category][:] for category in swear_dict}
 # Function to translate Estonian swears to English
 def translate_swear(swear):
     translations = {
+        # Anger
         "Kurat!" : "Damn it!", "Persevest!" : "Ass vest!", "Sitapea!" : "Shithead!", 
         "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid like boot!", "Kanaaju!" : "Chicken brain!", 
         "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like ram",
+        # Humour
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
         "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick some mushrooms!", "Tõmba uttu!" : "Pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
+        # Surprise
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!"
+        # Too Far
+        "Mul on kohutavalt, kohutavalt kahju!": "I'm terribly, terribly sorry!",
+        "Suudlen su jalgu vabanduseks!": "I kiss your feet as an apology!"
     }
     return translations.get(swear, "Unknown")
 
-"""
-# Function to play a single swear
-def play_swear(category):
-    if category == "Random":
-        category = random.choice(list(swear_dict.keys()))
-    swear = random.choice(swear_dict[category])
-    swear_text.set(swear)
-    english_translation.set(translate_swear(swear))
-    play_audio(swear)
-    """
 
 # Function to play a single swear without repeating
 def play_swear(category):
@@ -73,43 +70,6 @@ def play_audio(swear):
         mixer.music.load(audio_file)
         mixer.music.play()
 
-"""
-# Combo function: play 3 swears in order and display formatted text
-def play_combo():
-    categories = ["Anger", "Surprise", "Humour"]
-    estonian_line = []
-    english_line = []
-
-    for category in categories:
-        swear = random.choice(swear_dict[category])
-        estonian_line.append(swear)
-        english_line.append(translate_swear(swear))
-        play_audio(swear)
-        while mixer.music.get_busy():
-            time.sleep(0.05)
-
-    swear_text.set("   ".join(estonian_line))
-    english_translation.set("   ".join(english_line))
-
-def play_combo():
-    swear1 = random.choice(swear_dict["Anger"])
-    swear2 = random.choice(swear_dict["Surprise"])
-    swear3 = random.choice(swear_dict["Humour"])
-    
-    # Display all three words in a single row
-    swear_text.set(f"{swear1} {swear3}")
-    
-    # Display translations centered below
-    english_translation.set(f"{translate_swear(swear1)}   {translate_swear(swear3)}")
-
-    # Play each swear immediately after the previous one finishes
-    root.after(1, lambda: mixer.music.load(f"audio/{swear1}.mp3"))
-    root.after(2, lambda: mixer.music.play())
-    root.after(800, lambda: mixer.music.load(f"audio/{swear2}.mp3"))  # Adjusted timing for faster playback
-    root.after(801, lambda: mixer.music.play())
-    root.after(1600, lambda: mixer.music.load(f"audio/{swear3}.mp3"))
-    root.after(1601, lambda: mixer.music.play())
-"""
 
 def play_combo():
     import random
@@ -169,49 +129,6 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 #title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
 #title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
 
-"""
-# Variables for swear text and translation
-swear_text = tk.StringVar()
-english_translation = tk.StringVar()
-
-# Button style
-button_style = {
-    "font": ("Arial", 14, "bold"),
-    "fg": "white",
-    "bg": "black",
-    "relief": "raised",
-    "bd": 4,
-    "width": 10,
-    "height": 2
-}
-
-# Create buttons
-buttons = [
-    ("Anger", lambda: play_swear("Anger"), 3, 0),
-    ("Humour", lambda: play_swear("Humour"), 3, 1),
-    ("Surprise", lambda: play_swear("Surprise"), 3, 2),
-#   ("Random", lambda: play_swear("Random"), 6, 0),
-    ("Combo", lambda: play_combo(), 4, 0),
-    ("Too Far", lambda: play_swear("Anger"), 4, 1),
-    ("Menu", lambda: play_swear("Anger"), 4, 2)
-]
-
-for text, command, row, col in buttons:
-    btn = tk.Button(root, text=text, command=command, **button_style)
-    btn.grid(row=row, column=col, padx=10, pady=10, columnspan=1)
-
-    root.grid_columnconfigure(0, weight=1)
-    root.grid_columnconfigure(1, weight=1)
-    root.grid_columnconfigure(2, weight=1)
-
-
-# Display Area
-tk.Label(root, textvariable=swear_text, font=("Arial", 24, "bold"), bg="white").grid(row=6, column=0, columnspan=3, pady=5)
-tk.Label(root, textvariable=english_translation, font=("Arial", 20, "italic"), bg="white").grid(row=7, column=0, columnspan=3)
-
-root.mainloop()
-
-"""
 
 # Variables for swear text and translation
 swear_text = tk.StringVar(value="")
@@ -255,7 +172,7 @@ buttons = [
     ("Surprise", lambda: play_swear("Surprise"), 3, 2),
 #   ("Random", lambda: play_swear("Random"), 6, 0),
     ("Combo", lambda: play_combo(), 4, 0),
-    ("Too Far", lambda: play_swear("Anger"), 4, 1),
+    ("Too Far", lambda: play_swear("Too Far"), 4, 1),
     ("Menu", lambda: play_swear("Anger"), 4, 2)
 ]
 

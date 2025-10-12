@@ -3,6 +3,15 @@ import random
 import os
 import time
 from pygame import mixer
+from PIL import Image, ImageTk
+
+# Load and resize background image (Estonian flag)
+bg_image_raw = Image.open("image/estonian_flag.png")
+bg_image_resized = bg_image_raw.resize((480, 320), Image.LANCZOS)
+bg_image = ImageTk.PhotoImage(bg_image_resized)
+
+bg_label = tk.Label(root, image=bg_image)
+bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 # Initialize Pygame Mixer
 mixer.init()
@@ -131,6 +140,7 @@ root.attributes('-fullscreen', True)
 root.geometry("480x320")
 root.configure(bg="black")
 
+"""
 # Load background image (Estonian flag)
 bg_image = tk.PhotoImage(file="image/estonian_flag.png")
 bg_label = tk.Label(root, image=bg_image)
@@ -138,7 +148,7 @@ bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
 #title_label = tk.Label(root, text="ESTONIAN SWEARING MACHINE", font=("Arial", 56, "bold"), fg="white", bg="black")
 #title_label.grid(row=0, column=0, columnspan=3, pady=20)  # Center it across 3 columns
-
+"""
 
 # Variables for swear text and translation
 swear_text = tk.StringVar(value="")

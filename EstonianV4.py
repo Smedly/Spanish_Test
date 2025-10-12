@@ -12,7 +12,7 @@ swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
-    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!", 
+    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!"], 
 }
 
 

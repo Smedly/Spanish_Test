@@ -12,7 +12,6 @@ swear_dict = {
     "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
     "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
     "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
-    "Too Far": ["Mul on kohutavalt, kohutavalt kahju!", "Suudlen su jalgu vabanduseks!"],
 }
 
 
@@ -32,7 +31,6 @@ def translate_swear(swear):
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a carving of shit!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!"
-         "Mul on kohutavalt, kohutavalt kahju!" : "I'm terribly, terribly sorry!", "Suudlen su jalgu vabanduseks!" : "I kiss your feet as an apology"
     }
     return translations.get(swear, "Unknown")
 
@@ -257,7 +255,7 @@ buttons = [
     ("Surprise", lambda: play_swear("Surprise"), 3, 2),
 #   ("Random", lambda: play_swear("Random"), 6, 0),
     ("Combo", lambda: play_combo(), 4, 0),
-    ("Too Far", lambda: play_swear("Too Far"), 4, 1),
+    ("Too Far", lambda: play_swear("Anger"), 4, 1),
     ("Menu", lambda: play_swear("Anger"), 4, 2)
 ]
 

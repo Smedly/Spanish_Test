@@ -5,7 +5,18 @@ import time
 from pygame import mixer
 
 # Initialize Pygame Mixer
-mixer.init()
+#mixer.init()
+
+import time
+
+for i in range(5):
+    try:
+        mixer.init()
+        break
+    except Exception as e:
+        print(f"Audio init failed (attempt {i+1}): {e}")
+        time.sleep(2)
+
 
 # --- after imports and mixer.init() ---
 root = tk.Tk()

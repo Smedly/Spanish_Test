@@ -85,7 +85,8 @@ def play_swear(category):
 
 # Function to play audio
 def play_audio(swear):
-    audio_file = f"audio/{swear}.mp3"
+    #audio_file = f"audio/{swear}.mp3"
+    audio_file = f"/home/smedly/Spanish_Test/audio/{swear}.mp3"
     if os.path.exists(audio_file):
         mixer.music.load(audio_file)
         mixer.music.play()
@@ -129,11 +130,20 @@ def play_combo():
     combo_eng = f"{eng1} {eng2}!"
     english_translation.set(combo_eng)
 
+
     # Play audio sequentially — nice timing
     root.after(1, lambda: mixer.music.load(f"audio/{swear1}.mp3"))
     root.after(2, lambda: mixer.music.play())
     root.after(900, lambda: mixer.music.load(f"audio/{swear2}.mp3"))  # Adjust timing if needed
     root.after(901, lambda: mixer.music.play())
+"""
+
+    # Play audio sequentially — nice timing
+    root.after(1, lambda: mixer.music.load(f"/home/smedly/Spanish_Test/audio/{swear1}.mp3"))
+    root.after(2, lambda: mixer.music.play())
+    root.after(900, lambda: mixer.music.load(f"/home/smedly/Spanish_Test/audio/{swear2}.mp3"))  # Adjust timing if needed
+    root.after(901, lambda: mixer.music.play())
+"""
 
 #start new section1
 
@@ -175,7 +185,8 @@ def build_main_screen():
     root.configure(bg="black")
 
     # Load background image (Estonian flag)
-    bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    #bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    bg_image = tk.PhotoImage(file="/home/smedly/Spanish_Test/image/estonian_flag_small.png")
     bg_label = tk.Label(root, image=bg_image)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 

@@ -23,9 +23,9 @@ root = tk.Tk()
 
 # Swear dictionary
 swear_dict = {
-    "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!"],
-    "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!"],
-    "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!"],
+    "Anger": ["Kurat!", "Persevest!", "Sitapea!", "Käi põrgu!", "Loll kui saabas!", "Kanaaju!", "Jälkus!", "Tainapea!", "Loll nagu oinas!", "Käi kuradile!"],
+    "Humour": ["Püha müristus!", "Taevas appi!", "Püha püss!", "Mine metsa!", "Sõida seenele!", "Tõmba uttu!", "Käi kuu peale!", "Käi kukele!", "Tõmba lesta!", "Sa oled nagu kapsas!"],
+    "Surprise": ["Tõsi või?", "Issand jumal!", "Mida perset!", "Mida põrgut!", "Kuramus!", "Mind ei koti!", "Sitanikerdis!", "Kurivaim!", "Türaürask!", "Jubedus!"],
 
     "Too Far": ["Mul on nii nii nii kahju!", "Suudlen su varbaid!", "Tubli oled, mina olen prügi.!", "Anna andeks, ma olen ahv!", 
     "Ma olen täielik idioot!", "Ma rooman su ees nagu uss", "Las ma elan nagu su mopp!", "Ma lähen metsa häbi pärast!", "Palun andesta mu kanaaju!"], 
@@ -43,14 +43,17 @@ def translate_swear(swear):
         "Kurat!" : "Damn it!", "Persevest!" : "Ass vest!", "Sitapea!" : "Shithead!", 
         "Käi põrgu!" : "Go to hell!", "Loll kui saabas!" : "You're stupid like boot!", "Kanaaju!" : "Chicken brain!", 
         "Jälkus!" : "Disgusting creature!", "Tainapea!" : "Dough-head!", "Loll nagu oinas!" : "You're stupid like ram",
+        "Käi kuradile!" : "Go to the devil!",
         # Humour
         "Püha müristus!" : "Holy thunder!", "Taevas appi!" : "Heaven help us!", "Püha püss!" : "Holy gun!", 
         "Mine metsa!" : "Go to the forest!", "Sõida seenele!" : "Go pick mushrooms!", "Tõmba uttu!" : "Pull into a fog!", 
         "Käi kuu peale!" : "Walk to the moon!", "Käi kukele!" : "Go to the rooster!", "Tõmba lesta!" : "Pull a flipper!",
+        "Sa oled nagu kapsas!" : "You're like cabbage!",
         # Surprise
         "Tõsi või?" : "Is it true?", "Issand jumal!" : "Lord God!", "Mida perset!" : "What the ass!", 
         "Mida põrgut!" : "What the hell!", "Kuramus!" : "Damnation!", "Mind ei koti!" : "It doesn't bag me!",
         "Sitanikerdis!" : "What a shit carving!", "Kurivaim!" : "Angry spirits!", "Türaürask!" : "Cockbeetles!",
+        "Jubedus!" : "What a mess!"
         # Too Far
         "Mul on nii nii nii kahju!" : "I'm so so so sorry!", "Suudlen su varbaid!" : "I kiss your toes!",
         "Tubli oled, mina olen prügi.!" : "You are good, I am scum!", "Anna andeks, ma olen ahv!" : "Forgive me, I am a monkey!",

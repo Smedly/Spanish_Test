@@ -252,7 +252,8 @@ def build_main_screen():
 
 def build_menu_screen():
     global bg_image
-    bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    #bg_image = tk.PhotoImage(file="image/estonian_flag_small.png")
+    bg_image = tk.PhotoImage(file="/home/smedly/Spanish_Test/image/estonian_flag_small.png")
     bg_label = tk.Label(root, image=bg_image)
     bg_label.place(x=0, y=0, relwidth=1, relheight=1)
 
